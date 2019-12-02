@@ -50,7 +50,7 @@ services:
         '
 
     volumes:
-      # - ./data/alfresco:/usr/local/tomcat/alf_data/
+      - ./data/alfresco:/usr/local/tomcat/alf_data/
       - ./alfresco/alfresco-global.properties:/usr/local/tomcat/shared/classes/alfresco-global.properties
       # - ./alfresco/log4j.properties:/usr/local/tomcat/webapps/alfresco/WEB-INF/classes/log4j.properties
       # - ./data/alfresco-logs:/usr/local/tomcat/logs

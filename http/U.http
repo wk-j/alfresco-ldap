@@ -1,0 +1,3 @@
+###
+GET http://admin:admin@localhost/alfresco/api/-default-/public/alfresco/versions/1/people?skipCount=0&maxItems=100
+
