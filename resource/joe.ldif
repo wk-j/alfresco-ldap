@@ -1,6 +1,6 @@
 dn: uid=joe,dc=example,dc=org
 uid: joe
-cn: billy
+cn: joe
 sn: 4
 objectClass: top
 objectClass: posixAccount
