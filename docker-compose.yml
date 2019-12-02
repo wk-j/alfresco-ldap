@@ -12,6 +12,9 @@ services:
   alfresco:
     image: alfresco/alfresco-content-repository-community:6.2.0-ga
     mem_limit: 1500m
+    depends_on:
+      - postgres
+      - openldap
     environment:
       JAVA_OPTS: '
         -Ddb.driver=org.postgresql.Driver
@@ -121,7 +124,7 @@ services:
     # ports:
     #   - 5432:5432
     volumes:
-      # - ./data/postgres:/var/lib/postgresql/data
+      - ./data/postgres:/var/lib/postgresql/data
       - ./postgres:/docker-entrypoint-initdb.d
 
   solr6:
@@ -203,9 +206,9 @@ services:
     tty: true
     stdin_open: true
     volumes:
-      - /var/lib/ldap
-      - /etc/ldap/slapd.d
-      - /container/service/slapd/assets/certs/
+      - ./data/ldap/ldap:/var/lib/ldap
+      - ./data/ldap/slapd.d:/etc/ldap/slapd.d
+      - ./data/ldap/certs:/container/service/slapd/assets/certs/
     ports:
       - "389:389"
       - "636:636"
